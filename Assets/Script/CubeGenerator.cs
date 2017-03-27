@@ -5,7 +5,6 @@ using UnityEngine;
 public class CubeGenerator : MonoBehaviour {
 
     public GameObject cubePrefab;
-    public AudioSource audio;
 
     private float delta = 0;       //時間計測用の変数
     private float span = 1.0f;     //キューブの生成感覚
@@ -21,8 +20,7 @@ public class CubeGenerator : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-
-        this.audio = GetComponent<AudioSource>();
+        
 		
 	}
 	
@@ -45,7 +43,6 @@ public class CubeGenerator : MonoBehaviour {
                 //キューブの生成、配置
                 GameObject go = Instantiate(cubePrefab) as GameObject;
                 go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
-                audio.Play();
             }
             //次のキューブまでの生成時間を決める
             this.span = this.offsetX + this.spaceX * n;
